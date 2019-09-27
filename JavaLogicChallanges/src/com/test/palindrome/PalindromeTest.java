@@ -1,5 +1,7 @@
 package com.test.palindrome;
 
+import java.util.stream.IntStream;
+
 /**
  * 
  * 
@@ -26,6 +28,13 @@ public class PalindromeTest {
 			}
 		}
     	return result;
+    }
+    
+    public static boolean isPalindromeUseJava8(String word) {
+    	word = word.toLowerCase();
+    	char[] words = word.toCharArray();
+    	
+    	return IntStream.range(0, words.length/2).noneMatch(i -> words[i] != words[words.length-(i+1)]);
     }
     
     public static void main(String[] args) {
